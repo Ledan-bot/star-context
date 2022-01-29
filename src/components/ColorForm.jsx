@@ -5,7 +5,7 @@ import { useColors } from '../hooks/ColorProvider.jsx'
 export default function ColorForm() {
   const [titleProps, resetTitle] = useInput("")
   const [colorProps, resetColor] = useInput("#000000")
-  const {addColor} = useColors
+  const {addColor} = useColors()
 
   const handleSubmit = e => {
     e.preventDefault()
