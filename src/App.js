@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import ColorList from './components/ColorList.jsx'
 import colorData from './assets/color_data.json'
-import './App.css';
+import ColorForm from './components/ColorForm.jsx'
+import { v4 } from "uuid"
+
 
 function App() {
   const [colors, setColors] = useState(colorData)
@@ -12,6 +14,20 @@ function App() {
         <h1>Simple star Form</h1>
       </header>
       <main>
+        <ColorForm
+          onNewColor={(title, color) => {
+            const newColors = [
+              ...colors,
+              {
+                id: v4(),
+                rating: 0,
+                title,
+                color
+              }
+            ];
+            setColors(newColors)
+          }}
+        />
         <ColorList
           colors={colors}
           onRateColor={(id, rating) => {
