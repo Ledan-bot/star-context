@@ -5,6 +5,7 @@ import './App.css';
 
 function App() {
   const [colors, setColors] = useState(colorData)
+
   return (
     <div className="App">
       <header className="App-header">
